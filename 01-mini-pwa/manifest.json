@@ -1,3 +1,6 @@
 {
-    "name" : "DevFest Nantes 2018"
+    "name" : "DevFest Nantes 2018",
+    "display": "standalone",
+    "start_url": "/",
+    "icons": [ {"src": "montgolfiere.png", "sizes": "144x144"}]
     }

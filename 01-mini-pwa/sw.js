@@ -37,14 +37,15 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
     console.log('Fetching:', event.request.url);
     event.respondWith(
-        caches.match(event.request).then(response => {
-            if (response) {
-                console.log(event.request.url, 'servi depuis le cache');
-                return response;
-            }
-            console.log(event.request.url, 'servi depuis le réseau');
-            return fetch(event.request)
-        })
+        caches.match(event.request)
+            .then(response => {
+                if (response) {
+                    console.log(event.request.url, 'servi depuis le cache');
+                    return response;
+                }
+                console.log(event.request.url, 'servi depuis le réseau');
+                return fetch(event.request)
+            })
             // rubrique à ajouter
             .then(function (response) {
                 return caches.open(STATIC_CACHE_NAME).then(cache => {
@@ -80,7 +81,7 @@ self.addEventListener('activate', event => {
 
 // ecoute de message provenant d'un client
 self.addEventListener('message', event => {
-    // traitement du message (event.data)
+    console.log(event.data)
 })
 // exemple d'envoi de message à tous les clients (en local)
 self.clients.matchAll().then(function (clients) {
