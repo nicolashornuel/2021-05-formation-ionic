@@ -21,7 +21,6 @@ function createDomElt(tagname, text, parentElt = document.body, attributes) {
     return element;
 };
 
-
 async function maFunction() {
     let array = await fetchBlog();
     array.forEach(element => {
