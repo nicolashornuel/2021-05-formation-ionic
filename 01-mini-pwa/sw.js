@@ -81,14 +81,14 @@ self.addEventListener('activate', event => {
 
 // ecoute de message provenant d'un client
 self.addEventListener('message', event => {
-    console.log(event.data)
-})
-// exemple d'envoi de message à tous les clients (en local)
-self.clients.matchAll().then(function (clients) {
-    clients.forEach(function (client) {
-        client.postMessage({
-            "command": "HELLO_LES_CLIENTS",
-            "message": "Hello je suis un SW"
-        });
+    console.log(event.data);
+    // exemple d'envoi de message à tous les clients (en local)
+    self.clients.matchAll().then(function (clients) {
+        clients.forEach(function (client) {
+            client.postMessage({
+                "command": "HELLO_LES_CLIENTS",
+                "message": "Hello je suis un SW"
+            });
+        })
     })
 })
