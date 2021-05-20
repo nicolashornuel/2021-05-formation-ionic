@@ -28,14 +28,14 @@ function onDeviceReady() {
     document.getElementById('deviceready').classList.add('ready');
     document.getElementById('infos').innerHTML = `
     <ul>
-        <li>modèle=${device.model}
-        <li>cordova=${device.cordova}
-        <li>platform=${device.platform}
-        <li>uuid=${device.uuid}
-        <li>version=${device.version}
-        <li>manufacturer=${device.manufacturer}
-        <li>isVirtual=${device.isVirtual}
-        <li>serial=${device.serial}
+        <li>modèle=${device.model}</li>
+        <li>cordova=${device.cordova}</li>
+        <li>platform=${device.platform}</li>
+        <li>uuid=${device.uuid}</li>
+        <li>version=${device.version}</li>
+        <li>manufacturer=${device.manufacturer}</li>
+        <li>isVirtual=${device.isVirtual}</li>
+        <li>serial=${device.serial}</li>
     </ul>
     `
     navigator.camera.getPicture(
@@ -46,7 +46,7 @@ function onDeviceReady() {
         });
 
         checkConnection();
-        
+
 }
 
 
