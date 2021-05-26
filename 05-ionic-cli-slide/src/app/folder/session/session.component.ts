@@ -23,15 +23,7 @@ export class SessionComponent implements OnInit {
   }
 
   initializeData() {
-    this.devfestnantesService.getSessions().subscribe({
-      next: data => {
-        for (const key in data) {
-          this.sessions.push(data[key]);
-        }
-      },
-      error: (error: any) => console.log(error),
-      complete: () => console.log('Object Sessions done')
-    });
+    this.devfestnantesService.listerSessions().subscribe(data => this.sessions = data);
   }
 
   showDetail(id:number) {

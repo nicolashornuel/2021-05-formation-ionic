@@ -1,23 +1,40 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Create a note</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <ion-card-header>
+
+    <ion-card-subtitle *ngIf="session">Session n°{{session.id}} : {{session.title}}
+   </ion-card-subtitle>
+
+    <ion-card-subtitle *ngFor="let speaker of speakers">
+      Speaker n°{{speaker.id}} : {{speaker.name}}
+   </ion-card-subtitle>
+
+  </ion-card-header>
 
 
-<div class="ion-page">
-
-  <ion-header translucent>
-    <ion-toolbar>
-      <ion-title>Modal Content</ion-title>
-      <ion-buttons slot="end">
-        <ion-button (click)="dismiss()">Close</ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-  
+  <!-- Textarea in an item with a floating label -->
   <ion-item>
-    <ion-label position="floating">Floating Label</ion-label>
-    <ion-input></ion-input>
+    <ion-label position="floating">Write here</ion-label>
+    <ion-textarea rows="6" cols="10" #input></ion-textarea>
   </ion-item>
 
-  <ion-buttons slot="center">
-    <ion-button (click)="makeSomeNote()">Enregistrer</ion-button>
-  </ion-buttons>
 
-</div>
+  <div class="ion-text-center">
+    <ion-button (click)="makeSomeNote()">
+      <ion-icon name="save-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+
+</ion-content>

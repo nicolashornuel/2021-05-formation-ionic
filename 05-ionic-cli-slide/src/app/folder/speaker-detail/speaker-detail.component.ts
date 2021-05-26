@@ -40,11 +40,8 @@ export class SpeakerDetailComponent implements OnInit {
   async presentModal() {
     const modal = await this.modalController.create({
       component: ModalNoteComponent,
-      cssClass: 'my-custom-class',
       componentProps: {
-        'firstName': 'Douglas',
-        'lastName': 'Adams',
-        'middleInitial': 'N'
+        'speakers': [this.speaker]
       }
     });
     return await modal.present();

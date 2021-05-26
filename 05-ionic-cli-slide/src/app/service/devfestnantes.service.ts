@@ -15,7 +15,9 @@ interface SessionData {
 export class DevfestnantesService {
 
   private urlBack = "https://devfest-nantes-2018-api.cleverapps.io/"
+  private schedulesCache: Schedule[];
   private sessionsCache: Session[];
+  private speakersCache: Speaker[];
 
   constructor(private http: HttpClient) { }
 
@@ -30,15 +32,33 @@ export class DevfestnantesService {
             for (let key in sessionData) {
               sessions.push(sessionData[key]);
             }
-            return []
+            return sessions;
           }),
-          tap(sessionsTab => console.log(sessionsTab))
+          tap(sessions => this.sessionsCache = sessions)
         )
     }
   }
 
-  getSpeakers() {
-    return this.http.get<Speaker[]>(`${this.urlBack}speakers`);
+  getSchedule(): Observable<Schedule[]> {
+    if (this.schedulesCache) {
+      return of(this.schedulesCache);
+    } else {
+      return this.http.get<Schedule[]>(`${this.urlBack}schedule`)
+        .pipe(
+          map((res:Schedule[]) => this.schedulesCache=res),
+        )
+    }
+  }
+  
+  getSpeakers(): Observable<Speaker[]> {
+    if (this.speakersCache) {
+      return of(this.speakersCache);
+    } else {
+      return this.http.get<Speaker[]>(`${this.urlBack}speakers`)
+        .pipe(
+          map((res:Speaker[]) => this.speakersCache=res),
+        )
+    }
   }
 
   getSessions() {
@@ -53,9 +73,7 @@ export class DevfestnantesService {
     return this.http.get(`${this.urlBack}partners`);
   }
 
-  getSchedule() {
-    return this.http.get<Schedule[]>(`${this.urlBack}schedule`);
-  }
+
 
   getTeam() {
     return this.http.get(`${this.urlBack}team`);
