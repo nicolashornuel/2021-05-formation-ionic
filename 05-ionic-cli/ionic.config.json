@@ -1,7 +1,0 @@
-{
-  "name": "05-ionic-cli",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
