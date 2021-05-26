@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "05-ionic-cli",
-	"webDir": "www",
-	"bundledWebRuntime": false
+  "appId": "io.ionic.starter",
+  "appName": "05-ionic-cli",
+  "webDir": "www",
+  "bundledWebRuntime": false
 }

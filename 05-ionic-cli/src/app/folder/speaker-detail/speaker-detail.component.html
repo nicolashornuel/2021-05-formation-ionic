@@ -1,0 +1,29 @@
+<ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
+
+<ion-content *ngIf="!loading">
+
+  <ion-item lines="full">
+    <ion-back-button defaultHref="/"></ion-back-button>
+    <ion-label color="primary">Speaker n°{{speaker.id}}</ion-label>
+    <ion-button color="primary" (click)="presentModal()">Note</ion-button>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <ion-card-header>
+            <img *ngIf="speaker.companyLogo" src="https://devfest2018.gdgnantes.com/{{speaker.companyLogo}}"
+              style="height: 40px">
+            <ion-card-subtitle>Company : {{speaker.company}} - Country : {{speaker.country}}</ion-card-subtitle>
+            <ion-card-title>{{speaker.name}}</ion-card-title>
+          </ion-card-header>
+          <img *ngIf="speaker.photoUrl" src="https://devfest2018.gdgnantes.com/{{speaker.photoUrl}}"
+            style="height: 300px">
+          <ion-card-content>Description : {{speaker.bio}}</ion-card-content>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

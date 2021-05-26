@@ -1,0 +1,22 @@
+
+<ion-list *ngFor="let schedule of schedules">
+
+  <ion-item color="primary">
+    <ion-label>
+      {{schedule.date | date: 'EEEE d MMMM y' }}
+    </ion-label>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label color="primary">Start - End</ion-label>
+    <ion-label color="primary">Sessions</ion-label>
+  </ion-item>
+
+  <ion-item *ngFor="let timeslot of schedule.timeslots" lines="inset">
+    {{timeslot.startTime}} - {{timeslot.endTime}}
+    <ion-chip size="small" *ngFor="let session of timeslot.sessions">
+      <ion-label (click)="openSession(session)">{{session}} </ion-label>
+    </ion-chip>
+  </ion-item>
+
+</ion-list>
