@@ -26,14 +26,17 @@
   <!-- Textarea in an item with a floating label -->
   <ion-item>
     <ion-label position="floating">Write here</ion-label>
-    <ion-textarea rows="6" cols="10" #input></ion-textarea>
+    <ion-textarea autoGrow cols="10" #input></ion-textarea>
   </ion-item>
-
+  <ion-img *ngIf="myImage" [src]="myImage"></ion-img>
 
   <div class="ion-text-center">
     <ion-button (click)="makeSomeNote()">
       <ion-icon name="save-outline"></ion-icon>
     </ion-button>
+    <ion-button (click)="takePicture()">
+    <ion-icon name="camera-outline"></ion-icon>
+  </ion-button>
   </div>
 
 
