@@ -1,0 +1,32 @@
+
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Phone</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
+
+<ion-content  *ngIf="!loading" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Notes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<!-- List of Text Items -->
+<ion-list>
+  <ion-item *ngFor="let info of infos">
+    <ion-label>
+      <p><ion-text color="primary"><i>{{info.key}} : </i></ion-text>
+      {{info.value}}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+</ion-content>

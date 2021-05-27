@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'note',
     loadChildren: () => import('./note/note.module').then( m => m.NotePageModule)
+  },
+  {
+    path: 'phone',
+    loadChildren: () => import('./phone/phone.module').then( m => m.PhonePageModule)
   }
 ];
 

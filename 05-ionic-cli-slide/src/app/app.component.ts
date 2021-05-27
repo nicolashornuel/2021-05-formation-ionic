@@ -12,6 +12,7 @@ export class AppComponent {
     { title: 'Session', url: '/folder/session', icon: 'alarm' },
     { title: 'Speaker', url: '/folder/speaker', icon: 'people-circle' },
     { title: 'Note', url: '/note', icon: 'document' },
+    { title: 'Phone', url: '/phone', icon: 'hammer' },
   ];
 
   constructor() { }
