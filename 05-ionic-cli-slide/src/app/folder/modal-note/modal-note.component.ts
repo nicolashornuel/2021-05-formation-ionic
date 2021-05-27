@@ -25,7 +25,8 @@ export class ModalNoteComponent implements OnInit {
   ngOnInit() { }
 
   makeSomeNote() {
-    this.filesystemService.writeSecretFile(this.input.value);
+    //this.filesystemService.writeSecretFile(this.input.value);
+    this.filesystemService.set(this.input.value);
     this.presentToast();
     
   }

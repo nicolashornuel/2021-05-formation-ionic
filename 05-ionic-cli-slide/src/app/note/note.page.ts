@@ -15,7 +15,8 @@ export class NotePage implements OnInit {
   }
 
   listeNote() {
-    this.filesystemService.readSecretFile();
+    let data = this.filesystemService.get();
+    console.log(data);
   }
 
 }
